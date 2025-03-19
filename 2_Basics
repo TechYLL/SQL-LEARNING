@@ -1,0 +1,17 @@
+/*
+AS (alias) -- used to rename a column or table
+AS comand need the be written after the column but not after the table
+*/
+
+/*
+example:
+SELECT column_name AS alias_name
+FROM table_name alias_name
+*/
+
+
+
+/*
+The parantheses () are used to group the conditions together
+and all parantheses are evaluated first like math
+*/

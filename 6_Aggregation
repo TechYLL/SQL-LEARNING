@@ -1,0 +1,25 @@
+/*
+With aggregation functions,
+you can calculate the SUM, AVG, MIN, MAX, and COUNT of a column.
+They are used in SELECT statements with the GROUP BY clause.
+*/
+
+SELECT
+    salary_hour_avg,
+    job_title_short,
+    SUM(salary_hour_avg) AS total_salary_hour_avg,
+    AVG(salary_hour_avg) AS avg_salary_hour_avg,
+    MIN(salary_hour_avg) AS min_salary_hour_avg,
+    MAX(salary_hour_avg) AS max_salary_hour_avg,
+    COUNT(job_title_short) AS count_title
+FROM
+    job_postings_fact
+WHERE
+    job_title_short = 'Data Analyst'
+GROUP BY
+    salary_hour_avg, job_title_short
+
+/*
+showing the SUM, AVG, MIN, MAX, and COUNT of the salary_hour_avg column.
+The GROUP BY clause groups the results by the salary_hour_avg column.
+*/

@@ -1,0 +1,59 @@
+/*
+Arithmetic Operations are used to perform mathematical operations.
+The following arithmetic operators are: +, -, *, /, %
+*/
+
+SELECT
+    job_title,
+    salary_hour_avg,
+    salary_hour_avg + 5 AS new_salary_hour_avg -- operation with alias
+FROM
+    job_postings_fact
+WHERE
+    salary_hour_avg IS NOT NULL
+ORDER BY
+    salary_hour_avg DESC
+
+/*
+This query shows job titles and their average hourly salary with
+a new column that adds 5 to the average hourly salary.
+*/
+
+
+/*
+SELECT
+    job_title,
+    salary_hour_avg,
+    salary_hour_avg + 5 AS new_salary_hour_avg, -- operation with alias
+    (salary_hour_avg + 5) * salary_hour_avg AS double_salary
+FROM
+    job_postings_fact
+WHERE
+    (salary_hour_avg + 5) * salary_hour_avg > 200 AND
+    salary_hour_avg IS NOT NULL
+ORDER BY
+    salary_hour_avg DESC
+*/
+
+/*
+With this query, we can calculate with new columns and filter the results.
+*/
+
+
+/*
+SELECT
+    hours_spent,
+    hours_spent % 8 AS extra_hours
+FROM
+    invoice_fact
+WHERE
+    (hours_spent BETWEEN 8 AND 16) AND
+    extra_hours > 0
+ORDER BY
+    hours_spent 
+*/
+
+/*
+with this example, we use a modulo operator (%)
+to find the remainder of hours spent after 8 hours and maximum of 16 hours.
+*/

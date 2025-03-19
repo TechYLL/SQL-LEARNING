@@ -1,0 +1,49 @@
+-- Shows how to setup a new table with columns and what type the columns are.
+
+-- /*
+CREATE TABLE job_applied (
+            job_id INT,
+            applied_date DATE,
+            cumstom_resume BOOLEAN,
+            cover_letter BOOLEAN,
+            status VARCHAR(50)
+);
+-- */
+
+-- After creating table just insert csv-file and start manipulate.
+SELECT *
+FROM job_applied;
+
+-- How to insert rows in a table
+
+INSERT INTO job_applied
+            (job_id,
+            applied_date,
+            cumstom_resume,
+            cover_letter,
+            status)
+VALUES      (1,
+            '2025-01-07',
+            true,
+            true,
+            'submitted');
+
+-- How to modify columns within tables
+
+ALTER TABLE job_applied
+ADD contact_type VARCHAR(50)
+
+/*
+use diffrent opions:
+ADD column_name datatype;
+RENAME COLUMN column_name TO new_name;
+ALTER COLUMN column_name TYPE datatype;
+DROP COLUMN column_name;
+*/
+
+-- With this you can quickly refresh a row within a table
+UPDATE job_applied
+SET contact_type = 'email'
+WHERE job_id = 1;
+
+DROP TABLE job_applied;

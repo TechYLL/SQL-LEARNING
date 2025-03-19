@@ -1,0 +1,20 @@
+SELECT -- Select all columns
+
+-- SELECT DISTINCT gets unique rows
+
+FROM -- From a table
+
+WHERE -- Filter rows
+
+GROUP BY -- Group rows that have the same values
+
+ORDER BY -- Order the rows (ASC or DESC)
+
+LIMIT -- Limit the number of rows returned
+
+-- comments for documentation
+
+/* multi-line comments
+for
+documentation
+*/

@@ -1,0 +1,68 @@
+/*
+Comparisons are used within the WHERE or HAVING clause.
+The comparison operators are: =, !=, <, >, <=, >=
+The logical operators are: AND, OR, BETWEEN, IN
+*/
+
+SELECT * -- all columns
+FROM job_postings_fact -- from a table
+WHERE
+    job_title_short = 'Data Analyst' -- filter rows by job title
+    AND salary_year_avg  > 80000 -- filter rows by salary
+ORDER BY salary_year_avg DESC -- order the rows by salary in descending order
+
+/*
+The query above will return all columns
+from the job_postings_fact table
+where the job title is 'Data Analyst'
+and the average salary is greater than 80000.
+Also the rows will be ordered by salary in descending order.
+*/
+
+
+
+/*
+SELECT * -- all columns
+FROM job_postings_fact -- from a table
+WHERE
+    job_title_short = 'Data Analyst' -- filter rows by job title
+    OR salary_year_avg  > 80000 -- filter rows by salary
+*/
+
+/*
+The query above will return all columns
+from the job_postings_fact table
+where the job title is 'Data Analyst' or 'Business Analyst'.
+*/
+
+
+
+/*
+SELECT * -- all columns
+FROM job_postings_fact -- from a table
+WHERE
+    job_title_short IN ('Data Analyst', Business Analyst) -- filter rows by job title with less text than the previous query
+*/
+
+/*
+The query above will return all columns
+from the job_postings_fact table
+where the job title is 'Data Analyst' and 'Business Analyst'.
+Useing IN statement you use less text and cleaner query are easier to read.
+*/
+
+
+
+/*
+SELECT * -- all columns
+FROM job_postings_fact -- from a table
+WHERE
+    salary_year_avg BETWEEM 60000 AND 100000 -- filter rows by salary in a range
+*/
+
+/*
+The query above will return all columns
+from the job_postings_fact table
+where the salary is in range of 60000 to 100000.
+Useing BETWEEN statement you sort out all other values.
+*/

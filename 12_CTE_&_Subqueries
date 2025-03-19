@@ -1,0 +1,29 @@
+/*
+These help to break down the query in to manageable pieces
+- Subqueries are for simpler querys
+- CTE for more complex ones
+
+SubQuery can be used in SELECT, FROM, WHERE or HAVING clauses
+
+CTE = Common Table Expression
+*/
+
+-- SubQuery
+SELECT *
+FROM ( -- SubQuery starts
+    SELECT *
+    FROM job_postings_fact
+    WHERE EXTRACT(MONTH FROM job_posted_date) = 3
+) AS march_jobs
+-- SubQuery ends
+
+
+-- CTE (Common Table Expression)
+WITH february_jobs AS (
+    SELECT *
+    FROM job_postings_fact
+    WHERE EXTRACT(MONTH FROM job_posted_date) = 2
+)
+
+SELECT *
+FROM february_jobs

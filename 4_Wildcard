@@ -1,0 +1,14 @@
+/*
+Wildcards are used to search for a string in a database.
+The different wildcard characters are: LIKE, %, _
+*/
+
+SELECT
+    job_id,
+    job_title_short
+FROM
+    job_postings_fact
+WHERE
+    job_title_short LIKE '%Analyst%'
+
+-- The % wildcard character is used to search for any string of characters.

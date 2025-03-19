@@ -1,0 +1,15 @@
+/* Load files into a table
+
+Get the absolute file path of your csv files:
+Find path by right-clicking a CSV file in VS Code and selecting “Copy Path”
+
+-- put it together like:
+COPY table_name
+FROM '[Insert File Path]/table_name.csv'
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+-- as example:
+COPY job_applied
+FROM 'C:\Users\YLLTECH\SQL files\SQL_LEARNING\csv_files\job_applied.csv'
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+

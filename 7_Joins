@@ -1,0 +1,10 @@
+/*
+JOINs are used to combine two or more tables.
+There are four types of JOINs:
+INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
+*/
+
+SELECT *
+FROM job_postings_fact
+LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
+WHERE job_postings_fact.job_title_short = 'Data Analyst'

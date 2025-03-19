@@ -1,0 +1,79 @@
+DROP TABLE job_application
+
+-- Create our table to work with
+CREATE TABLE job_application(
+            job_id INT,
+            job_location TEXT,
+            job_applied_date DATE,
+            cumstom_resume BOOLEAN,
+            cover_letter BOOLEAN,
+            job_applied_answer_date TIMESTAMP,
+            status VARCHAR(50));
+
+-- insert data to work with
+INSERT INTO job_application
+            (job_id,
+            job_location,
+            job_applied_date,
+            cumstom_resume,
+            cover_letter,
+            job_applied_answer_date,
+            status)
+VALUES      (1,
+            'anywhere',
+            '2025-01-07',
+            true,
+            true,
+            '2025-01-17 15:01:00',
+            'submitted'),
+            (2,
+            'anywhere',
+            '2025-01-08',
+            true,
+            false,
+            '2025-01-18 15:02:00',
+            'submitted'),
+            (3,
+            'anywhere',
+            '2025-01-09',
+            false,
+            false,
+            '2025-01-19 15:03:00',
+            'submitted'),
+            (4,
+            'anywhere',
+            '2025-01-10',
+            true,
+            true,
+            '2025-01-20 15:04:00',
+            'in process');
+
+-- Test
+SELECT *
+FROM job_application
+
+-- We can convert date column with ::DATE to remove timestamps
+
+SELECT
+    job_applied_answer_date::DATE 
+FROM
+    job_application
+
+-- We can also clean everything with AT TIME ZONE conversion
+
+SELECT
+    job_location,
+    job_applied_date,
+    job_applied_answer_date AS date_answer_EST,
+    job_applied_answer_date AT TIME ZONE 'EST' AT TIME ZONE 'UTC' AS date_answer_UTC
+FROM
+    job_application
+
+-- Also you can use EXTRACT to sort out DAY,MONTH,YEAR
+
+SELECT *,
+    EXTRACT(DAY FROM job_applied_date) AS day_applied,
+        EXTRACT(MONTH FROM job_applied_date) AS month_applied,
+            EXTRACT(YEAR FROM job_applied_date) AS year_applied
+FROM
+    job_application
